@@ -1,0 +1,15 @@
+<launch>
+    <!-- Main PD Control Node -->
+    <node pkg="tello_controller" type="tello_control.py" name="tello_control" output="screen"/>
+
+    <!-- RQT Reconfigure -->
+    <node pkg="rqt_reconfigure" type="rqt_reconfigure" name="rqt_reconfigure" output="screen"/>
+
+    <!-- Get Keyboard Key Node -->
+    <node pkg="tello_controller" type="get_key_node.py" name="get_key_node" output="screen"/>
+
+    <!-- RQT Plot -->
+    <node pkg="rqt_plot" type="rqt_plot" name="z_plot" output="screen" args="/system_vars"/>
+
+    <!-- rosbag record /system_vars -O system_vars.bag -->
+</launch>
